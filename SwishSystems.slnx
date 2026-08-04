@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="SwishSystems.Web/SwishSystems.Web.csproj" />
+</Solution>
