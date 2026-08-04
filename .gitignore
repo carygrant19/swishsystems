@@ -1,0 +1,30 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+#Portal
+/Portal.Web/bin/Release/net8.0
+/Portal.BLL/bin/Release/net8.0
+/Portal.DAL/bin/Release/net8.0
+/Portal.Helper/bin/Release/net8.0
+
+
+#BulkUpload
+/BulkUpload.BLL/bin/Release/net8.0
+/BulkUpload.DAL/bin/Release/net8.0
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
+[Bb]in/
+[Oo]bj/
+
+bin/*
+OBJ/*
+/Portal.Web/wwwroot/lib/bootstrap/dist/css
+/Portal.Web/wwwroot/lib/bootstrap/dist/js
+/Portal.Web/wwwroot/lib/bootstrap/Backup BS4/dist
+/Portal.Web/wwwroot/Assets/AdminLTE/dist
+/Portal.Web/appsettings.json
