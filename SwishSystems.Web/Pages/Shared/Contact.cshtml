@@ -1,0 +1,53 @@
+﻿@using SwishSystems.Web.Models
+@model ContactFormModel
+
+<h2 class="section-title">Ready to Get Started?</h2>
+<div class="contact-container">
+    <div class="contact-info">
+        <h3 style="margin-bottom: 1.5rem;">Let's Talk</h3>
+        <p style="margin-bottom: 2rem;">Whether you want to demo our basketball platform or brainstorm a custom app for your business, our team is here to help.</p>
+
+        <div style="margin-bottom: 1rem;">
+            <strong>Email:</strong> hello@swishsystems.com
+        </div>
+        <div style="margin-bottom: 1rem;">
+            <strong>Phone:</strong> +63 123 456 7890
+        </div>
+        <div style="margin-bottom: 1rem;">
+            <strong>Location:</strong> Metro Manila, Philippines
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <!-- Removed action="#" and onsubmit. Added method="post" -->
+        <form method="post">
+            <div style="margin-bottom: 1rem;">
+                <input asp-for="Name" type="text" placeholder="Your Name" required>
+                <span asp-validation-for="Name" style="color: red; font-size: 0.85em;"></span>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <input asp-for="Email" type="email" placeholder="Your Email" required>
+                <span asp-validation-for="Email" style="color: red; font-size: 0.85em;"></span>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <select asp-for="Interest" required>
+                    <option value="" disabled selected>What are you interested in?</option>
+                    <option value="basketball">Court Vision League System</option>
+                    <option value="custom">Custom Software Development</option>
+                    <option value="career">Career / Job Application</option>
+                    <option value="other">Other</option>
+                </select>
+                <span asp-validation-for="Interest" style="color: red; font-size: 0.85em;"></span>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <textarea asp-for="Message" placeholder="Tell us about your project or league..." required></textarea>
+                <span asp-validation-for="Message" style="color: red; font-size: 0.85em;"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</div>
