@@ -1,31 +1,862 @@
-html {
-  font-size: 14px;
+/* --- DEFAULT DARK THEME VARIABLES --- */
+:root {
+    --bg-deep: #0B111E;
+    --bg-nav: #080C16;
+    --bg-card: #161F30;
+    --bg-hover: #1F2A40;
+    --accent-orange: #F97316;
+    --accent-blue: #2563EB;
+    --accent-blue-hover: #1D4ED8;
+    --text-main: #FFFFFF;
+    --text-muted: #9CA3AF;
+    --border-color: #26334D;
+    --ad-bg: #111827;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Specific overrides for hardcoded elements */
+    --archive-bg: #B0B3B8;
+    --archive-text: #1C1E21;
+    --archive-muted: #4B5563;
+    /* Adidas Row background specifically for dark mode */
+    --adidas-row-bg: #111827;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* --- LIGHT THEME VARIABLES --- */
+body.light-mode {
+    --bg-deep: #F3F4F6;
+    --bg-nav: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-hover: #E5E7EB;
+    --text-main: #111827;
+    --text-muted: #4B5563;
+    --border-color: #D1D5DB;
+    --ad-bg: #E5E7EB;
+    --archive-bg: #E5E7EB;
+    --archive-text: #111827;
+    --archive-muted: #6B7280;
+    /* Adidas Row background specifically for light mode */
+    --adidas-row-bg: #E5E7EB;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Make body a flex container to keep footer at the bottom */
 body {
-  margin-bottom: 60px;
+    font-family: var(--font-family);
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Wrapper for the page content to push footer down */
+.main-wrapper {
+    flex: 1;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* --- MAIN HEADER NAV --- */
+header {
+    background-color: var(--bg-nav);
+    border-bottom: 2px solid var(--accent-orange);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 65px;
+    transition: background-color 0.3s ease;
 }
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+    .logo span {
+        color: var(--text-main);
+    }
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+}
+
+    nav ul li a {
+        color: var(--text-main);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        padding: 1.3rem 0.3rem;
+        display: inline-block;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent-orange);
+            border-bottom-color: var(--accent-orange);
+        }
+
+/* THEME TOGGLE BUTTON */
+.theme-btn {
+    background-color: var(--bg-hover);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+    .theme-btn:hover {
+        border-color: var(--accent-orange);
+        color: var(--accent-orange);
+    }
+
+/* --- ADVERTISEMENT SLOTS --- */
+.ad-container {
+    background-color: var(--ad-bg);
+    border: 1px dashed var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ad-leaderboard {
+    width: 100%;
+    height: 90px;
+}
+
+.ad-sidebar {
+    width: 100%;
+    height: 250px;
+}
+
+/* --- LAYOUT STRUCTURE --- */
+.page-content {
+    display: none;
+    padding: 1rem 5% 3rem 5%;
+    max-width: 1500px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+    .page-content.active-page {
+        display: block;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+}
+
+@media (max-width: 1100px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- COMPONENTS --- */
+.section-heading {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+    border-left: 4px solid var(--accent-orange);
+    padding-left: 10px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* --- HOME PAGE & DIVISIONS: GRID CARDS --- */
+.division-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.division-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.div-card-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.icon-blue {
+    background-color: #0A3D73;
+    color: #60A5FA;
+}
+
+.icon-orange {
+    background-color: #7C2D12;
+    color: #FB923C;
+}
+
+.div-info h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+
+.div-info p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.1rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+    .btn-primary:hover {
+        background-color: var(--accent-blue-hover);
+    }
+
+/* --- ARCHIVED SEASONS CARDS --- */
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.archive-card {
+    background-color: var(--archive-bg);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--archive-text);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.archive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.archive-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+    .archive-stats div span {
+        display: block;
+        color: var(--archive-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-bottom: 0.2rem;
+    }
+
+.btn-disabled {
+    background-color: var(--bg-hover);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.6rem;
+    font-weight: 700;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: not-allowed;
+}
+
+/* --- SEASONS PAGE: HERO & NEWS GRID --- */
+.hero-article {
+    background-color: var(--bg-hover);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 2rem 2rem 2rem;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    min-height: 320px;
+    transition: all 0.3s ease;
+}
+
+    .hero-article .badge {
+        background-color: var(--accent-orange);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 800;
+        padding: 0.3rem 0.6rem;
+        border-radius: 3px;
+        width: fit-content;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .hero-article h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-article p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+    }
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.news-item {
+    background-color: var(--bg-card);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.news-tag {
+    color: var(--accent-orange);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.news-item h4 {
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+/* --- DEFAULT TABLES (Schedule, summaries, etc) --- */
+.page-content:not(#boxscore) table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.page-content:not(#boxscore) th, .page-content:not(#boxscore) td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-content:not(#boxscore) th {
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.page-content:not(#boxscore) tr:hover {
+    background-color: var(--bg-hover);
+}
+
+/* General Orange highlights used in tables */
+.highlight-stat {
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+/* --- ABOUT US / DIVISION DETAILS FLEX LAYOUT --- */
+.about-flex {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.about-image-placeholder {
+    width: 250px;
+    height: 250px;
+    background-color: var(--bg-hover);
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.about-details h3 {
+    font-size: 2.2rem;
+    color: var(--accent-orange);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.about-details p {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.about-details strong {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* --- SEASONS PAGE: SCORE STRIP (ESPN STYLE) --- */
+.score-strip {
+    display: flex;
+    align-items: stretch;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    height: 80px;
+    transition: all 0.3s ease;
+}
+
+.score-strip-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-hover);
+}
+
+.pill-select {
+    appearance: none;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.4rem 2rem 0.4rem 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    transition: all 0.3s ease;
+}
+
+.score-strip-games {
+    display: flex;
+    overflow-x: auto;
+    flex: 1;
+    align-items: center;
+}
+
+    .score-strip-games::-webkit-scrollbar {
+        display: none;
+    }
+
+.score-strip-games {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.strip-game-card {
+    padding: 0 1.2rem;
+    border-right: 1px solid var(--border-color);
+    min-width: 150px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.strip-game-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.strip-team-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+}
+
+.strip-team-name {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: bold;
+}
+
+.strip-team-logo {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    display: inline-block;
+}
+
+/* --- BOX SCORE SPECIFIC STYLES (INTEGRATED FROM NEW CONTENT) --- */
+
+/* Carousel/Sponsored row */
+.bs-sponsored-row {
+    display: flex;
+    background-color: var(--adidas-row-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    align-items: center;
+    padding: 0;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.bs-adidas-logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Always white based on image */
+    padding: 20px;
+    height: 100px;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+    .bs-adidas-logo-box img {
+        width: 60px;
+        object-fit: contain;
+    }
+
+.bs-product-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    flex-grow: 1;
+    padding: 10px;
+    align-items: flex-end;
+    height: 100%;
+}
+
+    .bs-product-carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+.bs-product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+    .bs-product-item img {
+        height: 70px;
+        object-fit: contain;
+    }
+
+.bs-product-price {
+    color: #000;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Main Stats Card and Table */
+#boxscore .card-main-stats {
+    padding: 0;
+    overflow: hidden;
+}
+
+#boxscore .stats-tabs {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+    #boxscore .stats-tabs a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+    }
+
+        #boxscore .stats-tabs a.active {
+            color: var(--accent-orange);
+        }
+
+#boxscore .table-container {
+    padding: 20px;
+}
+
+#boxscore .team-table-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+    #boxscore .team-table-header img {
+        width: 24px;
+        height: 24px;
+    }
+
+#boxscore .box-score-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: left;
+}
+
+    #boxscore .box-score-table th, #boxscore .box-score-table td {
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-main);
+    }
+
+    #boxscore .box-score-table th {
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    #boxscore .box-score-table tr.separator td {
+        border-bottom: 2px solid var(--border-color);
+    }
+
+#boxscore .player-name {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+#boxscore .player-num {
+    color: var(--text-muted);
+    margin-left: 5px;
+}
+
+/* Specific highlights for box score table */
+#boxscore .bs-high {
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+#boxscore .dnp-col {
+    color: var(--text-muted);
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+#boxscore .team-total-row td {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--bg-hover);
+}
+
+/* HEADER SCOREBOARD FOR BOX SCORE */
+#boxscore .card-scoreboard {
+    padding: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#boxscore .sb-main-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#boxscore .sb-team {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+    #boxscore .sb-team img {
+        width: 40px;
+        height: 40px;
+    }
+
+#boxscore .sb-team-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#boxscore .sb-team-record {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+#boxscore .sb-score {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 900;
+    gap: 1.5rem;
+}
+
+#boxscore .sb-score-win {
+    color: var(--text-main);
+}
+
+#boxscore .sb-score-loss {
+    color: var(--accent-orange);
+}
+
+#boxscore .sb-qtrs-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+}
+
+#boxscore .sb-qtrs-table {
+    border-collapse: collapse;
+    color: var(--text-muted);
+}
+
+    #boxscore .sb-qtrs-table th {
+        color: var(--text-main);
+        padding: 0 8px 4px 8px;
+        text-transform: uppercase;
+    }
+
+    #boxscore .sb-qtrs-table td {
+        padding: 4px 8px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    #boxscore .sb-qtrs-table .tm-col {
+        text-align: left;
+        color: var(--text-main);
+        font-weight: bold;
+    }
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--bg-nav);
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+    footer span {
+        color: var(--accent-orange);
+        font-weight: bold;
+        font-style: italic;
+    }

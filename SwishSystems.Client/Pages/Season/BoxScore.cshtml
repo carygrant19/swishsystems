@@ -1,0 +1,351 @@
+﻿@page
+@model SwishSystems.Client.Pages.Season.BoxScoreModel
+@{
+}
+<div id="boxscore" class="page-content active-page">
+    <div class="ad-container ad-leaderboard">
+        SPONSORED BANNER ADVERTISEMENT (728x90 / 970x90)
+    </div>
+
+    <!-- SCOREBOARD HEADER -->
+    <div class="card card-scoreboard">
+        <div class="sb-main-row">
+            <div class="sb-team">
+                <!-- Placeholder for Bucks Logo -->
+                <div style="width:40px; height:40px; border-radius:50%; background-color:#00471B;"></div>
+                <div class="sb-team-info">
+                    <div class="sb-team-name">Milwaukee Bucks</div>
+                    <div class="sb-team-record">23-14</div>
+                </div>
+            </div>
+            <div class="sb-score">
+                <span class="sb-score-win">121</span>
+                <span class="sb-score-loss">118</span>
+            </div>
+            <div class="sb-team" style="flex-direction: row-reverse; text-align: right;">
+                <!-- Placeholder for Warriors Logo -->
+                <div style="width:40px; height:40px; border-radius:50%; background-color:#1D428A;"></div>
+                <div class="sb-team-info">
+                    <div class="sb-team-name">Golden State Warriors</div>
+                    <div class="sb-team-record">19-18</div>
+                </div>
+            </div>
+        </div>
+        <div class="sb-qtrs-row">
+            <div>Final</div>
+            <table class="sb-qtrs-table">
+                <thead>
+                    <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>T</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="tm-col">MKE</td><td>30</td><td>28</td><td>33</td><td>30</td><td>121</td></tr>
+                    <tr><td class="tm-col">GSW</td><td>29</td><td>31</td><td>30</td><td>28</td><td>118</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ADIDAS SPONSORED CAROUSEL -->
+    <div class="bs-sponsored-row">
+        <div class="bs-adidas-logo-box">
+            <!-- Basic representation of Adidas Logo -->
+            <div style="font-family: Arial, sans-serif; font-weight: bold; font-style: italic; font-size: 20px; color: #000; letter-spacing: -1px; transform: skewX(-10deg);">adidas</div>
+        </div>
+        <div class="bs-product-carousel">
+            <!-- Use background colors to represent products from image -->
+            <a href="#" class="bs-product-item">
+                <div style="width: 70px; height: 70px; background-color: #f1f1f1; border-radius: 4px;"></div>
+                <span class="bs-product-price">₱700</span>
+            </a>
+            <a href="#" class="bs-product-item">
+                <div style="width: 70px; height: 70px; background-color: #e0e0e0; border-radius: 4px;"></div>
+                <span class="bs-product-price">₱3,200</span>
+            </a>
+            <a href="#" class="bs-product-item">
+                <div style="width: 70px; height: 70px; background-color: #d6d6d6; border-radius: 4px;"></div>
+                <span class="bs-product-price">₱5,500</span>
+            </a>
+            <a href="#" class="bs-product-item">
+                <div style="width: 70px; height: 70px; background-color: #cdcdcd; border-radius: 4px;"></div>
+                <span class="bs-product-price">₱3,300</span>
+            </a>
+            <a href="#" class="bs-product-item">
+                <div style="width: 70px; height: 70px; background-color: #c4c4c4; border-radius: 4px;"></div>
+                <span class="bs-product-price">₱3,100</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN STATS CARD -->
+    <div class="card card-main-stats">
+        <ul class="stats-tabs">
+            <li><a href="#" class="active">Box Score</a></li>
+            <li><a href="#">Game Flow</a></li>
+            <li><a href="#">Team Stats</a></li>
+        </ul>
+
+        <div class="table-container">
+            <div class="team-table-header">
+                <!-- Placeholder for Bucks Logo -->
+                <div style="width:20px; height:20px; border-radius:50%; background-color:#00471B;"></div>
+                Milwaukee Bucks
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="box-score-table">
+                    <thead>
+                        <tr>
+                            <th>Starters</th>
+                            <th>MIN</th>
+                            <th>PTS</th>
+                            <th>FG</th>
+                            <th>3PT</th>
+                            <th>FT</th>
+                            <th>REB</th>
+                            <th>AST</th>
+                            <th>TO</th>
+                            <th>STL</th>
+                            <th>BLK</th>
+                            <th>OREB</th>
+                            <th>DREB</th>
+                            <th>PF</th>
+                            <th>+/-</th>
+                            <tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="player-name">G. Antetokounmpo</span><span class="player-num">#34</span></td>
+                                    <td>34</td>
+                                    <td class="bs-high">20</td>
+                                    <td>16-14</td>
+                                    <td>5-2</td>
+                                    <td>4-8</td>
+                                    <td>10</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>6</td>
+                                    <td>6</td>
+                                    <td>+1</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">K. Middleton</span><span class="player-num">#22</span></td>
+                                    <td>22</td>
+                                    <td>16</td>
+                                    <td>10-12</td>
+                                    <td>0-0</td>
+                                    <td>4-5</td>
+                                    <td>3</td>
+                                    <td>5</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                    <td>+10</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">B. Lopez</span><span class="player-num">#11</span></td>
+                                    <td>11</td>
+                                    <td>27</td>
+                                    <td>20-13</td>
+                                    <td>2-2</td>
+                                    <td>3-4</td>
+                                    <td>10</td>
+                                    <td>7</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>+13</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">J. Holiday</span><span class="player-num">#21</span></td>
+                                    <td>21</td>
+                                    <td>13</td>
+                                    <td>10-13</td>
+                                    <td>3-3</td>
+                                    <td>4-4</td>
+                                    <td>6</td>
+                                    <td>8</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>+10</td>
+                                </tr>
+                                <tr class="separator">
+                                    <td><span class="player-name">G. Allen</span><span class="player-num">#12</span></td>
+                                    <td>12</td>
+                                    <td>5</td>
+                                    <td>4-13</td>
+                                    <td>0-0</td>
+                                    <td>0-0</td>
+                                    <td>3</td>
+                                    <td>9</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>+12</td>
+                                </tr>
+                                <tr><th>Bench</th><td colspan="14"></td></tr>
+                                <tr>
+                                    <td><span class="player-name">B. Portis</span><span class="player-num">#9</span></td>
+                                    <td>20</td>
+                                    <td>19</td>
+                                    <td>14-10</td>
+                                    <td>5-4</td>
+                                    <td>1-3</td>
+                                    <td>5</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                    <td>+8</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">P. Connaughton</span><span class="player-num">#24</span></td>
+                                    <td>24</td>
+                                    <td>18</td>
+                                    <td>7-15</td>
+                                    <td>2-2</td>
+                                    <td>8-10</td>
+                                    <td>6</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>-3</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">J. Carter</span><span class="player-num">#5</span></td>
+                                    <td>27</td>
+                                    <td>9</td>
+                                    <td>6-14</td>
+                                    <td>0-0</td>
+                                    <td>0-0</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>-2</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">J. Ingles</span><span class="player-num">#7</span></td>
+                                    <td>30</td>
+                                    <td>15</td>
+                                    <td>8-12</td>
+                                    <td>1-2</td>
+                                    <td>4-3</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>4</td>
+                                    <td>4</td>
+                                    <td>+8</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">W. Matthews</span><span class="player-num">#23</span></td>
+                                    <td>16</td>
+                                    <td>8</td>
+                                    <td>0-1</td>
+                                    <td>0-3</td>
+                                    <td>2-2</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>+12</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="player-name">L. Wigginton</span><span class="player-num">#28</span></td>
+                                    <td>16</td>
+                                    <td>4</td>
+                                    <td>0-1</td>
+                                    <td>0-0</td>
+                                    <td>2-2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>4</td>
+                                    <td>-4</td>
+                                </tr>
+                                <tr class="separator">
+                                    <td><span class="player-name">G. Hill</span><span class="player-num">#3</span></td>
+                                    <td>8</td>
+                                    <td>2</td>
+                                    <td>0-1</td>
+                                    <td>0-2</td>
+                                    <td>0-2</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>10</td>
+                                    <td>-10</td>
+                                </tr>
+                                <!-- DNP Section -->
+                                <tr><td class="player-name">M. Beauchamp<span class="player-num">#0</span></td><td colspan="14" class="dnp-col">DNP-Coach's Decision</td></tr>
+                                <tr><td class="player-name">Thanasis Antetokounmpo<span class="player-num">#43</span></td><td colspan="14" class="dnp-col">DNP-Coach's Decision</td></tr>
+                                <tr><td class="player-name">Meyers Leonard<span class="player-num">#0</span></td><td colspan="14" class="dnp-col">DNP-Coach's Decision</td></tr>
+                                <tr><td class="player-name">S. Ibaka<span class="player-num">#25</span></td><td colspan="14" class="dnp-col">DNP-Coach's Decision</td></tr>
+                                <tr class="separator"><td class="player-name">A. Green<span class="player-num">#20</span></td><td colspan="14" class="dnp-col">DNP-Coach's Decision</td></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="team-total-row">
+                                    <td>TEAM</td>
+                                    <td>121</td>
+                                    <td></td>
+                                    <td>46-92</td>
+                                    <td>14-32</td>
+                                    <td>15-21</td>
+                                    <td>58</td>
+                                    <td>42</td>
+                                    <td>29</td>
+                                    <td>14</td>
+                                    <td>9</td>
+                                    <td>11</td>
+                                    <td>20</td>
+                                    <td>20</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,103 @@
+﻿@page
+@model SwishSystems.Client.Pages.Season.IndexModel
+@{
+    ViewData["Title"] = "Home";
+    ViewData["ActivePage"] = "Divisions";
+}
+
+<div id="seasons" class="page-content active-page">
+
+    <div class="score-strip">
+        <div class="score-strip-controls">
+            <select class="pill-select">
+                <option>GEBL</option>
+                <option>YOUTH U-16</option>
+                <option>WOMEN'S DIV</option>
+            </select>
+            <select class="pill-select">
+                <option>4 Oct</option>
+                <option>5 Oct</option>
+                <option>6 Oct</option>
+            </select>
+        </div>
+
+        <div class="score-strip-games">
+            <div class="strip-game-card">
+                <div class="strip-game-time">4/10 - 7:00 AM</div>
+                <div class="strip-team-row">
+                    <div class="strip-team-name"><span class="strip-team-logo" style="background-color: #981B25;"></span> MIA</div>
+                    <div>0</div>
+                </div>
+                <div class="strip-team-row">
+                    <div class="strip-team-name"><span class="strip-team-logo" style="background-color: #CE1141;"></span> TOR</div>
+                    <div>0</div>
+                </div>
+            </div>
+            <div class="strip-game-card">
+                <div class="strip-game-time">4/10 - 8:30 AM</div>
+                <div class="strip-team-row">
+                    <div class="strip-team-name"><span class="strip-team-logo" style="background-color: #007A33;"></span> BOS</div>
+                    <div>0</div>
+                </div>
+                <div class="strip-team-row">
+                    <div class="strip-team-name"><span class="strip-team-logo" style="background-color: #1D428A;"></span> PHI</div>
+                    <div>0</div>
+                </div>
+            </div>
+            <div class="strip-game-card" style="flex: 1; border-right: none;"></div>
+        </div>
+    </div>
+
+    <!-- SEASONS CONTENT -->
+    <div class="ad-container ad-leaderboard">
+        SPONSORED BANNER ADVERTISEMENT (728x90 / 970x90)
+    </div>
+
+    <div class="layout-grid">
+        <div>
+            <div class="hero-article">
+                <span class="badge">BREAKING NEWS</span>
+                <h1>Championship Series Game 7 Sold Out in Record 4 Minutes</h1>
+                <p>The final showdown promises historical ratings as both teams field fully healthy rosters.</p>
+            </div>
+
+            <h2 class="section-heading">HEADLINE STORIES</h2>
+
+            <div class="news-grid">
+                <div class="news-item">
+                    <span class="news-tag">TRADES</span>
+                    <h4>Deadline frenzy produces 5 marquee player swaps</h4>
+                </div>
+                <div class="news-item">
+                    <span class="news-tag">AWARDS</span>
+                    <h4>MVP Race: Final voting ballots submitted today</h4>
+                </div>
+                <div class="news-item">
+                    <span class="news-tag">INJURIES</span>
+                    <h4>Star Guard cleared for full contact practice</h4>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="ad-container ad-sidebar" style="margin-top: 0;">
+                SIDEBAR AD SPACE<br>(300x250)
+            </div>
+
+            <div class="card">
+                <h3 style="font-size: 1.1rem; font-weight: bold; margin-bottom: 1.2rem;">League Standings</h3>
+                <table>
+                    <thead>
+                        <tr><th>TEAM</th><th>W</th><th>L</th><th>PCT</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. Coast Waves</strong></td><td>45</td><td>12</td><td>.789</td></tr>
+                        <tr><td><strong>2. City Knights</strong></td><td>41</td><td>16</td><td>.719</td></tr>
+                        <tr><td><strong>3. Metro Vipers</strong></td><td>38</td><td>19</td><td>.667</td></tr>
+                        <tr><td><strong>4. Sun Kings</strong></td><td>30</td><td>27</td><td>.526</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

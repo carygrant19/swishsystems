@@ -1,0 +1,91 @@
+﻿@page
+@model SwishSystems.Client.Pages.DivisionModel
+@{
+    ViewData["Title"] = "Home";
+    ViewData["ActivePage"] = "Divisions";
+}
+
+<div id="divisions" class="page-content active-page">
+
+    <h2 class="section-heading">Division Details</h2>
+
+    <!-- Division Details Card -->
+    <div class="card about-flex" style="margin-bottom: 2.5rem;">
+        <div class="about-image-placeholder">
+            [ DIV LOGO ]
+        </div>
+        <div class="about-details">
+            <h3>Premier Division</h3>
+
+            <p>
+                <strong>Description</strong>
+                The top-tier competition division featuring the most elite teams in the league. This division represents the pinnacle of skill, strategy, and high stakes competition within the organization.
+            </p>
+
+            <p>
+                <strong>Total Active Teams</strong>
+                20 Franchises
+            </p>
+
+            <p>
+                <strong>Current Status</strong>
+                Active (2024/25 Season Ongoing)
+            </p>
+        </div>
+    </div>
+    <!-- Active Seasons List -->
+    <h2 class="section-heading">Active Seasons</h2>
+    <div class="division-grid">
+        <div class="division-card">
+            <div class="div-card-top">
+                <div class="icon-box icon-blue">⚽</div>
+                <div class="div-info">
+                    <h4>2024/25 Premier League</h4>
+                    <p>Status: Active - In Progress</p>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="goToSeasons()">VIEW SEASON DASHBOARD</button>
+        </div>
+    </div>
+
+    <!-- Past / Archived Seasons List -->
+    <h2 class="section-heading">Past Seasons</h2>
+    <div class="archive-grid">
+        <div class="archive-card">
+            <div class="archive-header">
+                <div>⚽ 2023/24 Premier League</div>
+                <div>🔒</div>
+            </div>
+            <div class="archive-stats">
+                <div>
+                    <span>Status</span>
+                    Completed
+                </div>
+                <div>
+                    <span>Champion</span>
+                    Coast Waves
+                </div>
+            </div>
+            <button class="btn-disabled" disabled>View Only</button>
+        </div>
+
+        <div class="archive-card">
+            <div class="archive-header">
+                <div>⚽ 2022/23 Premier League</div>
+                <div>🔒</div>
+            </div>
+            <div class="archive-stats">
+                <div>
+                    <span>Status</span>
+                    Completed
+                </div>
+                <div>
+                    <span>Champion</span>
+                    City Knights
+                </div>
+            </div>
+            <button class="btn-disabled" disabled>View Only</button>
+        </div>
+    </div>
+
+</div>

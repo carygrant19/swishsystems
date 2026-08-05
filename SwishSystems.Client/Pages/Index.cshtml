@@ -1,10 +1,89 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
+    ViewData["ActivePage"] = "home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="home" class="page-content active-page">
+    <div class="ad-container ad-leaderboard">
+        SPONSORED BANNER ADVERTISEMENT (728x90 / 970x90)
+    </div>
+
+    <div class="layout-grid">
+        <div>
+            <h2 class="section-heading" style="border:none; padding:0;">ACTIVE LEAGUE DIVISIONS - 2024/25 SEASON</h2>
+
+            <div class="division-grid">
+                <div class="division-card">
+                    <div class="div-card-top">
+                        <div class="icon-box icon-blue">⚽</div>
+                        <div class="div-info">
+                            <h4>Premier Division</h4>
+                            <p>Season: 2024/25 Active</p>
+                            <p>👥 20 Teams</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="goToSeasons()">VIEW DIVISION</button>
+                </div>
+
+                <div class="division-card">
+                    <div class="div-card-top">
+                        <div class="icon-box icon-blue">⚽</div>
+                        <div class="div-info">
+                            <h4>Division 1</h4>
+                            <p>Season: 2024/25 Active</p>
+                            <p>👥 20 Teams</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="goToSeasons()">VIEW DIVISION</button>
+                </div>
+
+                <div class="division-card">
+                    <div class="div-card-top">
+                        <div class="icon-box icon-orange">🏀</div>
+                        <div class="div-info">
+                            <h4>Youth U-16</h4>
+                            <p>Season: 2024/25 Active</p>
+                            <p>👥 20 Teams</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="goToSeasons()">VIEW DIVISION</button>
+                </div>
+            </div>
+
+            <h2 class="section-heading" style="border:none; padding:0;">ARCHIVED SEASONS (VIEW-ONLY, DISABLED)</h2>
+            <div class="archive-grid">
+                <div class="archive-card">
+                    <div class="archive-header">
+                        <div>⚽ 2023/24 Premier League</div>
+                        <div>🔒</div>
+                    </div>
+                    <div class="archive-stats">
+                        <div><span>Season</span>2023/24 Completed</div>
+                        <div><span>Number</span>View Only</div>
+                    </div>
+                    <button class="btn-disabled" disabled>Season Completed - View Only</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="ad-container ad-sidebar" style="margin-top: 0;">
+                SIDEBAR AD SPACE<br>(300x250)
+            </div>
+            <div class="card">
+                <h3 style="font-size:1rem; text-transform:uppercase; margin-bottom:1rem; border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">SAMPLE PREMIER STANDINGS</h3>
+                <table>
+                    <thead>
+                        <tr><th>TEAM</th><th>W</th><th>L</th><th>PCT</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. Coast Waves</strong></td><td>45</td><td>12</td><td>.789</td></tr>
+                        <tr><td><strong>2. City Knights</strong></td><td>41</td><td>16</td><td>.719</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
