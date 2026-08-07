@@ -1,0 +1,833 @@
+﻿You are an award-winning basketball journalist and professional sports writer.
+
+Your task is to analyze the uploaded basketball game JSON and generate a compelling post-game recap.
+
+The uploaded JSON contains:
+
+- Final Score
+- Quarter Scores
+- Team names
+- Player statistics for both teams
+
+## IMPORTANT
+
+- Use ONLY the information found in the uploaded JSON.
+- Never invent statistics, players, or events.
+- If a statistic is unavailable, simply omit it.
+- Write like a professional sports journalist (ESPN, NBA.com, FIBA).
+- Focus on storytelling instead of simply listing statistics.
+- Explain why the winning team won.
+
+---
+
+## ANALYZE THE GAME
+
+Determine automatically:
+
+- Winning team
+- Losing team
+- Final score
+- Margin of victory
+- Halftime score
+- Which team won each quarter
+- Whether the game was close, one-sided, or featured a comeback
+- The turning point of the game
+- The players who had the biggest impact based on the statistics
+
+Use these observations naturally in the summary.
+
+---
+
+## TITLE
+
+Create a catchy sports headline.
+
+Rules:
+- Maximum of 12 words.
+- Mention the winning team whenever possible.
+- Make it engaging and newsworthy.
+
+Examples:
+
+- SPW Stays Perfect with Convincing Victory
+- SPW Controls Every Quarter Against FDL
+- Balanced Attack Powers SPW Past FDL
+
+---
+
+## SUBTITLE
+
+Write one sentence that summarizes the game.
+
+Example:
+
+Balanced scoring and defensive execution helped SPW secure a convincing 76–56 victory over FDL.
+
+---
+
+## SUMMARY
+
+Write between **180 and 250 words**.
+
+The summary should naturally include:
+
+- Final score
+- Overall flow of the game
+- Quarter-by-quarter momentum
+- Halftime situation
+- Turning point
+- Why the winning team prevailed
+- Standout individual performances
+- The losing team's best efforts
+- A strong closing statement about what the result means
+
+Do not use section headings such as "First Quarter" or "Turning Point". Instead, write it as one smooth, engaging recap that reads like a professional sports news article.
+
+---
+
+## OUTPUT FORMAT
+
+Return ONLY valid JSON.
+
+{
+  "title": "",
+  "subtitle": "",
+  "summary": ""
+}
+
+---
+
+## VALIDATION RULES
+
+- Return ONLY valid JSON.
+- Do not wrap the JSON in markdown.
+- Do not include explanations.
+- Do not invent statistics.
+- Do not invent players or events.
+- Base every statement on the uploaded JSON.
+- Make the recap read naturally like it was written by a professional sports journalist.
+
+{{GAME_JSON}}
+
+"finalScore": {
+
+  "home": 76,
+
+  "away": 56
+
+},
+
+"quarterScores": {
+
+  "Q1": {
+
+"FDL": 12,
+
+"SPW": 18
+
+  },
+
+  "Q2": {
+
+"FDL": 8,
+
+"SPW": 13
+
+  },
+
+  "Q3": {
+
+"FDL": 15,
+
+"SPW": 19
+
+  },
+
+  "Q4": {
+
+"FDL": 21,
+
+"SPW": 26
+
+  },
+
+  "OT1": null,
+
+  "OT2": null,
+
+  "OT3": null,
+
+  "OT4": null
+
+},
+
+
+
+{
+
+  "teams": [
+
+    {
+
+      "name": "FDL",
+
+      "players": [
+
+        {
+
+          "jersey": 23,
+
+          "name": "Michael Angelo Castillo",
+
+          "position": "SG",
+
+          "points": 21,
+
+          "rebounds": 9,
+
+          "offensiveRebounds": 2,
+
+          "defensiveRebounds": 7,
+
+          "assists": 2,
+
+          "steals": 3,
+
+          "blocks": 1,
+
+          "fieldGoalsMade": 7,
+
+          "fieldGoalsAttempted": 13,
+
+          "fieldGoalPercentage": 53.8,
+
+          "threePointersMade": 1,
+
+          "threePointersAttempted": 6,
+
+          "threePointPercentage": 16.7,
+
+          "freeThrowsMade": 4,
+
+          "freeThrowsAttempted": 4,
+
+          "freeThrowPercentage": 100,
+
+          "personalFouls": 1,
+
+          "turnovers": 1,
+
+          "spe": 35
+
+        },
+
+        {
+
+          "jersey": 27,
+
+          "name": "Jimmuel Dacara",
+
+          "position": "SG",
+
+          "points": 8,
+
+          "rebounds": 5,
+
+          "offensiveRebounds": 2,
+
+          "defensiveRebounds": 3,
+
+          "assists": 0,
+
+          "steals": 7,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 3,
+
+          "fieldGoalsAttempted": 11,
+
+          "fieldGoalPercentage": 27.3,
+
+          "threePointersMade": 0,
+
+          "threePointersAttempted": 0,
+
+          "threePointPercentage": 0,
+
+          "freeThrowsMade": 2,
+
+          "freeThrowsAttempted": 2,
+
+          "freeThrowPercentage": 100,
+
+          "personalFouls": 0,
+
+          "turnovers": 1,
+
+          "spe": 19
+
+        },
+
+        {
+
+          "jersey": 9,
+
+          "name": "Dexter Solisa",
+
+          "position": "PG",
+
+          "points": 7,
+
+          "rebounds": 3,
+
+          "offensiveRebounds": 1,
+
+          "defensiveRebounds": 2,
+
+          "assists": 4,
+
+          "steals": 2,
+
+          "blocks": 4,
+
+          "fieldGoalsMade": 3,
+
+          "fieldGoalsAttempted": 9,
+
+          "fieldGoalPercentage": 33.3,
+
+          "threePointersMade": 0,
+
+          "threePointersAttempted": 5,
+
+          "threePointPercentage": 0,
+
+          "freeThrowsMade": 1,
+
+          "freeThrowsAttempted": 3,
+
+          "freeThrowPercentage": 33.3,
+
+          "personalFouls": 0,
+
+          "turnovers": 3,
+
+          "spe": 17
+
+        },
+
+        {
+
+          "jersey": 18,
+
+          "name": "John Paul Arriola",
+
+          "position": "PF",
+
+          "points": 6,
+
+          "rebounds": 5,
+
+          "offensiveRebounds": 2,
+
+          "defensiveRebounds": 3,
+
+          "assists": 1,
+
+          "steals": 1,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 3,
+
+          "fieldGoalsAttempted": 11,
+
+          "fieldGoalPercentage": 27.3,
+
+          "personalFouls": 1,
+
+          "turnovers": 1,
+
+          "spe": 12
+
+        },
+
+        {
+
+          "jersey": 9,
+
+          "name": "Jamin Hernandez",
+
+          "position": "C",
+
+          "points": 6,
+
+          "rebounds": 3,
+
+          "offensiveRebounds": 3,
+
+          "defensiveRebounds": 0,
+
+          "assists": 0,
+
+          "steals": 0,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 3,
+
+          "fieldGoalsAttempted": 7,
+
+          "fieldGoalPercentage": 42.9,
+
+          "spe": 9
+
+        },
+
+        {
+
+          "jersey": 25,
+
+          "name": "Cedrick Cipriano",
+
+          "position": "PF",
+
+          "points": 4,
+
+          "rebounds": 3,
+
+          "offensiveRebounds": 0,
+
+          "defensiveRebounds": 3,
+
+          "assists": 0,
+
+          "steals": 0,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 2,
+
+          "fieldGoalsAttempted": 4,
+
+          "fieldGoalPercentage": 50,
+
+          "personalFouls": 1,
+
+          "turnovers": 1,
+
+          "spe": 6
+
+        },
+
+        {
+
+          "jersey": 11,
+
+          "name": "Victor Tengco",
+
+          "position": "C",
+
+          "points": 4,
+
+          "rebounds": 2,
+
+          "offensiveRebounds": 1,
+
+          "defensiveRebounds": 1,
+
+          "assists": 0,
+
+          "steals": 3,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 2,
+
+          "fieldGoalsAttempted": 9,
+
+          "fieldGoalPercentage": 22.2,
+
+          "threePointersMade": 0,
+
+          "threePointersAttempted": 2,
+
+          "threePointPercentage": 0,
+
+          "personalFouls": 3,
+
+          "turnovers": 4,
+
+          "spe": 5
+
+        },
+
+        {
+
+          "jersey": 5,
+
+          "name": "John Marvin Bailon",
+
+          "position": "PG",
+
+          "points": 0,
+
+          "rebounds": 3,
+
+          "offensiveRebounds": 0,
+
+          "defensiveRebounds": 3,
+
+          "assists": 2,
+
+          "steals": 0,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 0,
+
+          "fieldGoalsAttempted": 1,
+
+          "fieldGoalPercentage": 0,
+
+          "threePointersMade": 0,
+
+          "threePointersAttempted": 2,
+
+          "threePointPercentage": 0,
+
+          "spe": 5
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "name": "SPW",
+
+      "players": [
+
+        {
+
+          "jersey": 19,
+
+          "name": "Cary Grant Rodolfo",
+
+          "position": "SG",
+
+          "points": 19,
+
+          "rebounds": 4,
+
+          "offensiveRebounds": 2,
+
+          "defensiveRebounds": 2,
+
+          "assists": 1,
+
+          "steals": 3,
+
+          "blocks": 0,
+
+          "fieldGoalsMade": 5,
+
+          "fieldGoalsAttempted": 11,
+
+          "fieldGoalPercentage": 45.5,
+
+          "threePointersMade": 2,
+
+          "threePointersAttempted": 4,
+
+          "threePointPercentage": 50,
+
+          "freeThrowsMade": 3,
+
+          "freeThrowsAttempted": 3,
+
+          "freeThrowPercentage": 100,
+
+          "personalFouls": 3,
+
+          "turnovers": 2,
+
+          "spe": 25
+
+        },
+
+        {
+
+          "jersey": 55,
+
+          "name": "Riken Lopez",
+
+          "position": "SG",
+
+          "points": 18,
+
+          "rebounds": 4,
+
+          "offensiveRebounds": 3,
+
+          "defensiveRebounds": 1,
+
+          "assists": 1,
+
+          "steals": 1,
+
+          "fieldGoalsMade": 9,
+
+          "fieldGoalsAttempted": 18,
+
+          "fieldGoalPercentage": 50,
+
+          "turnovers": 1,
+
+          "spe": 23
+
+        },
+
+        {
+
+          "jersey": 7,
+
+          "name": "Jon Patrick Bayot",
+
+          "position": "SF",
+
+          "points": 14,
+
+          "rebounds": 7,
+
+          "offensiveRebounds": 0,
+
+          "defensiveRebounds": 7,
+
+          "assists": 1,
+
+          "fieldGoalsMade": 7,
+
+          "fieldGoalsAttempted": 12,
+
+          "fieldGoalPercentage": 58.3,
+
+          "spe": 22
+
+        },
+
+        {
+
+          "jersey": 71,
+
+          "name": "Martin Quirap",
+
+          "position": "SF",
+
+          "points": 3,
+
+          "rebounds": 10,
+
+          "offensiveRebounds": 2,
+
+          "defensiveRebounds": 8,
+
+          "assists": 6,
+
+          "steals": 6,
+
+          "fieldGoalsMade": 1,
+
+          "fieldGoalsAttempted": 5,
+
+          "fieldGoalPercentage": 20,
+
+          "freeThrowsMade": 1,
+
+          "freeThrowsAttempted": 2,
+
+          "freeThrowPercentage": 50,
+
+          "personalFouls": 3,
+
+          "turnovers": 3,
+
+          "spe": 22
+
+        },
+
+        {
+
+          "jersey": 3,
+
+          "name": "Julius Pangilinan",
+
+          "position": "SF",
+
+          "points": 4,
+
+          "rebounds": 15,
+
+          "offensiveRebounds": 1,
+
+          "defensiveRebounds": 14,
+
+          "assists": 4,
+
+          "fieldGoalsMade": 2,
+
+          "fieldGoalsAttempted": 9,
+
+          "fieldGoalPercentage": 22.2,
+
+          "personalFouls": 1,
+
+          "turnovers": 2,
+
+          "spe": 21
+
+        },
+
+        {
+
+          "jersey": 6,
+
+          "name": "Melvin Padilla",
+
+          "position": "C",
+
+          "points": 7,
+
+          "rebounds": 6,
+
+          "offensiveRebounds": 1,
+
+          "defensiveRebounds": 5,
+
+          "assists": 4,
+
+          "steals": 1,
+
+          "fieldGoalsMade": 3,
+
+          "fieldGoalsAttempted": 8,
+
+          "fieldGoalPercentage": 37.5,
+
+          "freeThrowsMade": 1,
+
+          "freeThrowsAttempted": 3,
+
+          "freeThrowPercentage": 33.3,
+
+          "spe": 18
+
+        },
+
+        {
+
+          "jersey": 36,
+
+          "name": "Gilbert Lindo",
+
+          "position": "PG",
+
+          "points": 6,
+
+          "rebounds": 1,
+
+          "defensiveRebounds": 1,
+
+          "assists": 4,
+
+          "fieldGoalsMade": 3,
+
+          "fieldGoalsAttempted": 6,
+
+          "fieldGoalPercentage": 50,
+
+          "threePointersMade": 0,
+
+          "threePointersAttempted": 2,
+
+          "spe": 10
+
+        },
+
+        {
+
+          "jersey": 28,
+
+          "name": "Raymond Solasco",
+
+          "position": "SG",
+
+          "points": 5,
+
+          "rebounds": 2,
+
+          "offensiveRebounds": 1,
+
+          "defensiveRebounds": 1,
+
+          "assists": 1,
+
+          "fieldGoalsMade": 1,
+
+          "fieldGoalsAttempted": 4,
+
+          "fieldGoalPercentage": 25,
+
+          "threePointersMade": 1,
+
+          "threePointersAttempted": 1,
+
+          "threePointPercentage": 100,
+
+          "personalFouls": 4,
+
+          "turnovers": 1,
+
+          "spe": 7
+
+        },
+
+        {
+
+          "jersey": 11,
+
+          "name": "King Reyes",
+
+          "position": "PG",
+
+          "points": 0,
+
+          "rebounds": 2,
+
+          "defensiveRebounds": 2,
+
+          "assists": 4,
+
+          "fieldGoalsMade": 0,
+
+          "fieldGoalsAttempted": 2,
+
+          "fieldGoalPercentage": 0,
+
+          "turnovers": 1,
+
+          "spe": 5
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+} 
+

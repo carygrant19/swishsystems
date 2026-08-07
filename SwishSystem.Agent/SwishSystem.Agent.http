@@ -1,0 +1,6 @@
+@SwishSystem.Agent_HostAddress = http://localhost:5265
+
+GET {{SwishSystem.Agent_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
